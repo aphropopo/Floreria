@@ -1,23 +1,14 @@
 <!doctype html>
 <html lang="en">
-{% load static %}
   <head>
-    <title>Floreria Petalos</title>
+    <title>Title</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <!-- Deja las imagenes del carrusel responsivas -->
-    <style>
-    .carousel-inner img {
-    width: 1100px;
-    height: 900px;
-  }
-  </style>
   </head>
-  
   <body>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -51,56 +42,5 @@
   </div>  
 </nav>
 <br>
-<!-- JUMBO TRON DE TITULO -->
-<nav>
-<div class="container">
- <div class="jumbotron">
-  <h1 style='font-size: 70px'>Floreria Petalos</h1>
-  <p style='font-size: 24px'>Arreglos Florales y Rosas</p>
-</div>
-</div>
-</nav>  
- <!-- Carrusel De imagenes --> 
-<center>
-<div id="demo" class="carousel slide" data-ride="carousel">
-  <ul class="carousel-indicators">
-    <li data-target="#demo" data-slide-to="0" class="active"></li>
-    <li data-target="#demo" data-slide-to="1"></li>
-    <li data-target="#demo" data-slide-to="2"></li>
-  </ul>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="{% static 'core/img/flor1.jpg' %}" alt="Los Angeles" width="1100" height="500">
-      <div class="carousel-caption">
-        <h3 class="text-primary">ENSAMBLADOS A MANO</h3>
-        <p class="text-primary">Nuestros artesanos armarán tu regalo con flores frescas</p>
-      </div>   
-    </div>
-    <div class="carousel-item">
-      <img src="{% static 'core/img/flor2.jpg' %}" alt="Chicago" width="1100" height="500">
-      <div class="carousel-caption">
-        <h3 class="bg-success text-white">CALIDAD COMPROBADA</h3>
-        <p class="bg-success text-white">Utilizamos un proceso de calidad que garantiza la frescura de cada ramo</p>
-      </div>   
-    </div>
-    <div class="carousel-item">
-      <img src="{% static 'core/img/flor3.jpg' %}" alt="New York" width="1100" height="500">
-      <div class="carousel-caption">
-        <h3 class="text-danger">ENTREGA EXPRESS</h3>
-        <p class="text-danger">Nuestro envío express hará que se regalo llegue rapido y en optimas condiciones</p>
-      </div>   
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#demo" data-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </a>
-  <a class="carousel-control-next" href="#demo" data-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </a>
-</div>
-</center>
-
-
-  
   </body>
 </html>
