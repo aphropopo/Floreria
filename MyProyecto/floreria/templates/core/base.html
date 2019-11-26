@@ -1,14 +1,26 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Title</title>
+    <title>
+            {% block titulo %}
+    
+            {% endblock titulo %}
+    </title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Deja las imagenes del carrusel responsivas -->
+    <style>
+    .carousel-inner img {
+    width: 1100px;
+    height: 900px;
+  }
+  </style>
   </head>
+  
   <body>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -35,49 +47,20 @@
        <li class="nav-item">
         <a class="nav-link" href="{% url 'CONTA' %}">Contactanos</a>
       </li>     
+      {% if user.is_authenticated %}     
       <li class="nav-item">
         <a class="nav-link" href="{% url 'CERRAR_SESION' %}">Cerrar sesion</a>
-      </li>   
+      </li>
+      {% endif %} 
     </ul>
   </div>  
 </nav>
 <br>
 
-<!-- JUMBO TRON DE TITULO -->
-<nav>
-    <div class="container">
-     <div class="jumbotron">
-      <h1 style='font-size: 50px; ' class="text-primary">Contáctanos</h1>
-    </div>
-    <h3>Contáctanos 24 horas al día, 7 días a la semana</h3>
-    <p><strong>Estamos comprometidos en obtener tu satisfacción y la de tus seres queridos.</strong></p>
-    <p>A lo largo de una década hemos entregado más de 750,000 arreglos florales y nos sentimos muy orgullosos que nuestros clientes</p>
-    <p>día a día siguen regresando y demandando nuestros productos. Nuestra meta es que tu y tus seres queridos queden muy a gusto </p>
-    <p>con nuestro servicio.</p>
-    </div>
-    </nav>  
+{% block contenido %}
+        
+{% endblock contenido %}
 
-    <!-- Formulario de contacto -->
-    <div class="container">
-    <div class="row">
-    <div class="col-sm-4">
-    <label for="demo"><strong>Ingrese su correo a continuación:</strong> </label>
-    <div class="input-group mb-0">
-      <input type="text" class="form-control" placeholder="Email" id="demo" name="email" style="border-style: solid; border-width: 3px; border-color: black;"> 
-    </div></div></div></div>
-    <div class="container">
-      <div class="row">
-    <div class="col-sm-8" >
-        <label for="demo"><strong>Ingrese su consulta:</strong> </label>
-        <div class="form-group">
-            
-            <textarea class="form-control" rows="5" id="comment" style="border-style: solid; border-width: 3px; border-color: black;"></textarea>
-          </div>
-          <br>
-    </div>
-  </div>
-</div>
-    
-  </div>
+
   </body>
 </html>

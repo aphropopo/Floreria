@@ -1,0 +1,10 @@
+{% extends "core/base.html" %}
+
+{% block titulo %}
+     Cerrar sesion
+{% endblock titulo %}
+
+{% block contenido %}
+    <h1>Has sido desconectado de tu cuenta</h1>
+    <a href="{% url 'LOGIN' %}">Volver a iniciar sesión</a>
+{% endblock contenido %}

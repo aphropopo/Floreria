@@ -1,23 +1,52 @@
 from django.shortcuts import render
+from django.contrib.auth.models import User
+# importar el sistema de autentificacion
+from django.contrib.auth import authenticate,logout,login as auth_login
+# importar los "decorators" que permiten evitar el ingreso a una pagina
+# sin estar logeado
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
 
 # Create your views here. Crea los controladores
 #Para las paginas webs
+@login_required(login_url='/login/')
 def home(request):
     return render(request,'core/index.html') 
     #Retorna la pagina renderizada
 
+def login(request):
+    return render(request,'core/login.html')
+
+def login_iniciar(request):
+    if request.POST:
+        u=request.POST.get("txtUsuario")
+        p=request.POST.get("txtPass")
+        usu=authenticate(request,username=u,password=p)
+        if usu is not None and usu.is_active:
+            auth_login(request, usu)
+            return render(request,'core/index.html')
+    return render(request,'core/login.html')
+
+@login_required(login_url='/login/')
 def galeria(request):
     return render(request, 'core/galeria.html')
     #Retorna la pagina renderizada
 
+@login_required(login_url='/login/')
 def formulario(request):
     return render(request, 'core/formulario.html')
     #Retorna la pagina renderizada
 
+@login_required(login_url='/login/')
 def contactanos(request):
     return render(request, 'core/contactanos.html')
     #Retorna la pagina renderizada
 
+@login_required(login_url='/login/')
 def carro(request):
     return render(request, 'core/carro.html')
     #Retorna la pagina renderizada
+
+def cerrar_sesion(request):
+    logout(request)
+    return render(request,'core/cerrar_sesion.html')
