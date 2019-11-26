@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+    {% load static %}
   <head>
     <title>Galeria</title>
     <!-- Required meta tags -->
@@ -42,8 +43,91 @@
   </div>  
 </nav>
 <br>
+<!-- JUMBO TRON DE TITULO -->
+<nav>
+    <div class="container-fluid">
+     <div class="jumbotron">
+      <h1 style='font-size: 50px; ' class="text-primary">Arreglos Florales</h1>
+    </div>
+    </div>
+    </nav>  
 
+    <!-- Galeria de imagenes -->
+    <div class="container-fluid">
+        <p><strong>AGREGAR TEXTO NO OLVIDAR</strong></p>
+        <p>Acá tambien</p>
+        <p><strong></strong>Acá quizá</p>
+        <div class="card-deck">
+          <div class="card bg-primary">
+            <div class="card-body text-center">
+              <h2>Ramillete de Rosas</h2>
+              <p>CLP$29.900</p>
+              <div class="card">
+                <img class="card-img-top" src="{% static 'core/img/galeria1.jpg' %}" alt="Card image" height="350px"  >
+                <a href="#" class="btn btn-primary">Agregar a carrito</a>
+              </div>  
+            </div>
+          </div>
+          <div class="card bg-warning">
+            <div class="card-body text-center">
+              <h2>Gerberas Rosadas</h2>
+              <p>CLP$39.900</p>
+              <div class="card">
+                <img class="card-img-top" src="{% static 'core/img/galeria2.jpg' %}" alt="Card image" height="350px"  >
+                <a href="#" class="btn btn-primary">Agregar a carrito</a>
+              </div>  
+            </div>
+          </div>
+          <div class="card bg-success">
+            <div class="card-body text-center">
+              <h2>Rosas y Lirios Blancos</h2>
+              <p>CLP$54.900</p>
+              <div class="card">
+                <img class="card-img-top" src="{% static 'core/img/galeria3.jpg' %}" alt="Card image" height="350px"  >
+                <a href="#" class="btn btn-primary">Agregar a carrito</a>
+              </div>  
+            </div>
+          </div>
+        </div>
+      </div>
 
+      <br>
+
+      <div class="container-fluid">
+            <div class="card-deck">
+            <div class="card bg-danger">
+              <div class="card-body text-center">
+                <h2>Bouquet Aniversario</h2>
+                <p>CLP$49.900</p>
+                <div class="card">
+                  <img class="card-img-top" src="{% static 'core/img/galeria4.jpg' %}" alt="Card image" height="350px"  >
+                  <a href="#" class="btn btn-primary">Agregar a carrito</a>
+                </div>  
+              </div>
+            </div>
+            <div class="card bg-secondary">
+              <div class="card-body text-center">
+                <h2>Canasta de Otoño</h2>
+                <p>CLP$54.900</p>
+                <div class="card">
+                  <img class="card-img-top" src="{% static 'core/img/galeria5.jpg' %}" alt="Card image" height="350px"  >
+                  <a href="#" class="btn btn-primary">Agregar a carrito</a>
+                </div>  
+              </div>
+            </div>
+            <div class="card bg-info">
+              <div class="card-body text-center">
+                <h2>Dia Soleado</h2>
+                <p>CLP$59.900</p>
+                <div class="card">
+                  <img class="card-img-top" src="{% static 'core/img/galeria6.jpg' %}" alt="Card image" height="350px"  >
+                  <a href="#" class="btn btn-primary">Agregar a carrito</a>
+                </div>  
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
 
   </body>
 </html>
