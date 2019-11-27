@@ -50,3 +50,26 @@ def carro(request):
 def cerrar_sesion(request):
     logout(request)
     return render(request,'core/cerrar_sesion.html')
+
+
+@login_required(login_url='/login/')
+def formularioflores(request):
+    if request.POST:
+        name=request.POST.get("txtName")
+        valor=request.POST.get("txtValor")
+        descripcion=request.POST.get("txtDescripcion")
+        stock=request.POST.get("txtStock")
+        #recuperar la imagen desde el formulario
+        imagen=request.FILES.get("txtImagen")
+        #crear una instancia de Pelicula (modelo)
+        flores=Flores(
+            name=name,
+            valor=valor,
+            precio=precio,
+            descripcion=descripcion,
+            stock=stock,
+            imagen=imagen
+        )
+        flores.save() #graba el objeto e bdd
+        return render(request,'core/formularioflores.html',{'msg':'grabo','sw':True})
+    return render(request,'core/formularioflores.html',{'lista':name})#pasan los datos a la web
