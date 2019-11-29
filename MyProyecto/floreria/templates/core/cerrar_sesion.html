@@ -5,6 +5,12 @@
 {% endblock titulo %}
 
 {% block contenido %}
-    <h1>Has sido desconectado de tu cuenta</h1>
-    <a href="{% url 'LOGIN' %}">Volver a iniciar sesión</a>
+{% load static %}
+<body background={% static 'core/img/fondo_login.jpg' %}>
+    <center>
+    <i class="fa fa-font-awesome" aria-hidden="true" style='font-size: 65px;'>Gracias por Visitar Petalos</i> 
+    <br></br>
+    <a href="{% url 'LOGIN' %}" class="btn btn-light">Volver a iniciar sesión</a>
+    </center>
+</body>
 {% endblock contenido %}

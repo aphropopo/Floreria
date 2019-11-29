@@ -5,21 +5,54 @@
 {% endblock titulo %}
 
 {% block contenido %}
-    <h1>Formulario Login de Acceso</h1>
-    <form name="formulario" method="POST" action="{% url 'LOGIN_INICIAR' %}">
-    {% csrf_token %}
-    <table border="1">
-        <tr>
-            <td>Usuario:</td>
-            <td> <input type="text" name="txtUsuario">   </td>
-        </tr>
-        <tr>
-            <td>Password:</td>
-            <td> <input type="password" name="txtPass">  </td>
-        </tr>
-        <tr>
-            <td colspan="2"> <input type="submit" value="Enviar">  </td>            
-        </tr>
-    </table>
-    </form>
+  
+{% load static %}
+ <body background={% static 'core/img/fondo_login.jpg' %}>   
+<center>
+<i class="fa fa-align-center" aria-hidden="true" style='font-size: 45px;'>Autentificacion Inicial</i>
+<br></br>
+<br></br>
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Iniciar Sesion</button>
+</center>
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" method="POST" action="{% url 'LOGIN_INICIAR' %}">
+  {% csrf_token %}
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="{% static 'core/img/img_avatar2.png' %}" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>Usuario:</b></label>
+      <input type="text" placeholder="Ingrese Usuario" name="txtUsuario" required>
+
+      <label for="psw"><b>Contraseña:</b></label>
+      <input type="password" placeholder="Ingrese Contraseña" name="txtPass" required>
+        
+      <button type="submit" value="Enviar">Ingresar</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Recordar Credenciales
+      </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Salir</button>
+      <span class="txtPass">Recuperar <a href="#">Contraseña?</a></span>
+    </div>
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+</body>
 {% endblock contenido %}
