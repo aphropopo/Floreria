@@ -1,56 +1,13 @@
-<!doctype html>
-<html lang="en">
-{% load static %}
-  <head>
-    <title>Floreria Petalos</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% extends "core/base.html" %}
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <!-- Deja las imagenes del carrusel responsivas -->
-    <style>
-    .carousel-inner img {
-    width: 1100px;
-    height: 900px;
-  }
-  </style>
-  </head>
-  
-  <body>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-  <!--BARRA DE NAVEGACION-->
-  <a class="navbar-brand" href="{% url 'HOME' %}" style='color:red'>Petalos</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'GALE' %}">Galeria</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'FORMU' %}">Formulario</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'CARRO' %}">Carro de Compras</a>
-      </li>
-       <li class="nav-item">
-        <a class="nav-link" href="{% url 'CONTA' %}">Contactanos</a>
-      </li>     
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'CERRAR_SESION' %}">Cerrar sesion</a>
-      </li>  
-    </ul>
-  </div>  
-</nav>
-<br>
+
+
+    {% block titulo %}
+     Floreria Petalos
+    {% endblock titulo %}
+
+{% block contenido %}       
+  {% load static %}
 <!-- JUMBO TRON DE TITULO -->
 <nav>
 <div class="container">
@@ -73,21 +30,21 @@
       <img src="{% static 'core/img/flor1.jpg' %}" alt="Los Angeles" width="1100" height="500">
       <div class="carousel-caption">
         <h3 class="text-primary">ENSAMBLADOS A MANO</h3>
-        <p class="text-primary">Nuestros artesanos armarán tu regalo con flores frescas</p>
+       <b> <p class="text-primary">Nuestros artesanos armarán tu regalo con flores frescas</p> </b>
       </div>   
     </div>
     <div class="carousel-item">
       <img src="{% static 'core/img/flor2.jpg' %}" alt="Chicago" width="1100" height="500">
       <div class="carousel-caption">
-        <h3 class="bg-success text-white">CALIDAD COMPROBADA</h3>
-        <p class="bg-success text-white">Utilizamos un proceso de calidad que garantiza la frescura de cada ramo</p>
+        <h3 class="text-primary">CALIDAD COMPROBADA</h3>
+        <b> <p class="text-primary">Utilizamos un proceso de calidad que garantiza la frescura de cada ramo</p> </b>
       </div>   
     </div>
     <div class="carousel-item">
       <img src="{% static 'core/img/flor3.jpg' %}" alt="New York" width="1100" height="500">
       <div class="carousel-caption">
-        <h3 class="text-danger">ENTREGA EXPRESS</h3>
-        <p class="text-danger">Nuestro envío express hará que se regalo llegue rapido y en optimas condiciones</p>
+        <h3 class="text-primary">ENTREGA EXPRESS</h3>
+        <b> <p class="text-primary">Nuestro envío express hará que se regalo llegue rapido y en optimas condiciones</p> </b>
       </div>   
     </div>
   </div>
@@ -100,7 +57,4 @@
 </div>
 </center>
 
-
-  
-  </body>
-</html>
+{% endblock contenido %}

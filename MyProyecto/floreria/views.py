@@ -52,6 +52,10 @@ def cerrar_sesion(request):
     return render(request,'core/cerrar_sesion.html')
 
 
+def registro(request):
+    return render(request, 'core/registro.html')
+    #Retorna la pagina renderizada
+
 @login_required(login_url='/login/')
 def formularioflores(request):
     if request.POST:
