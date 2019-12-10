@@ -1,7 +1,7 @@
 #tendra todas las url del sitio web
 from django.contrib import admin
-from django.urls import path
-from .views import home,galeria,formulario,contactanos,carro,login,login_iniciar,cerrar_sesion,registro
+from django.urls import path,include
+from .views import *
 
 urlpatterns = [
     path('',home,name='HOME'),

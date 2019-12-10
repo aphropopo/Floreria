@@ -28,6 +28,26 @@ button:hover {
   opacity: 0.8;
 }
 
+.cuadro {
+  background-color: rgb(255, 0, 0);
+  width: 250px;float: left;border-radius: 2em;
+  padding: 25px;text-align: center;margin: 15px;
+}
+
+.cuadro img{
+  width: 150px;
+  height: 200px;
+}
+.cuadro img:hover{
+  filter: brightness(0.6);
+}
+.cuadro p{
+  text-align: justify;
+}
+.cuadro img:hover ~ div{
+  background-color: black;padding: 6px;border-radius: 2em;color: white;
+}
+
 /* Extra styles for the cancel button */
 .cancelbtn {
   width: auto;
@@ -49,6 +69,10 @@ img.avatar {
 
 .container {
   padding: 16px;
+}
+
+section{
+  padding-top: 80px;
 }
 
 span.psw {

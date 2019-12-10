@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
 # importar el sistema de autentificacion
+from .models import Flores,Usuario
 from django.contrib.auth import authenticate,logout,login as auth_login
 # importar los "decorators" que permiten evitar el ingreso a una pagina
 # sin estar logeado
@@ -29,13 +30,10 @@ def login_iniciar(request):
 
 @login_required(login_url='/login/')
 def galeria(request):
-    return render(request, 'core/galeria.html')
+    floress=Flores.objects.all()
+    return render(request, 'core/galeria.html',{'listaflores':floress})
     #Retorna la pagina renderizada
 
-@login_required(login_url='/login/')
-def formulario(request):
-    return render(request, 'core/formulario.html')
-    #Retorna la pagina renderizada
 
 @login_required(login_url='/login/')
 def contactanos(request):
@@ -57,7 +55,7 @@ def registro(request):
     #Retorna la pagina renderizada
 
 @login_required(login_url='/login/')
-def formularioflores(request):
+def formulario(request):
     if request.POST:
         name=request.POST.get("txtName")
         valor=request.POST.get("txtValor")
@@ -66,14 +64,13 @@ def formularioflores(request):
         #recuperar la imagen desde el formulario
         imagen=request.FILES.get("txtImagen")
         #crear una instancia de Pelicula (modelo)
-        flores=Flores(
+        flor=Flores(
             name=name,
             valor=valor,
-            precio=precio,
             descripcion=descripcion,
             stock=stock,
             imagen=imagen
         )
-        flores.save() #graba el objeto e bdd
-        return render(request,'core/formularioflores.html',{'msg':'grabo','sw':True})
-    return render(request,'core/formularioflores.html',{'lista':name})#pasan los datos a la web
+        flor.save() #graba el objeto e bdd
+        return render(request,'core/formulario.html',{'msg':'grabo','sw':True})
+    return render(request,'core/formulario.html')#pasan los datos a la web

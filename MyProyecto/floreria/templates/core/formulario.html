@@ -19,38 +19,56 @@
     
     <!-- Formulario de ingreso -->
    
-    <form>
+    <form id="formulario" action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
       <div class="input-group mb-3" style="width: 55%; height: 45%; padding-left: 100px;">
         <div class="input-group-prepend" >
           <span class="input-group-text" >Nombre del Producto:</span>
         </div>
-        <input type="text" class="form-control" >
+        <input type="text" class="form-control" name="txtName" >
       </div>
-    </form>
-    <form>
+    
+      <div class="input-group mb-3" style="width: 55%; height: 45%; padding-left: 100px;">
+        <div class="input-group-prepend" >
+          <span class="input-group-text" >Descripción del Producto:</span>
+        </div>
+        <input type="text" class="form-control" name="txtDescripcion" >
+      </div>
+    
+    
       <div class="input-group mb-3" style="width: 55%; height: 45%; padding-left: 100px;">
         <div class="input-group-prepend" >
           <span class="input-group-text" >Valor del Producto:</span>
         </div>
-        <input type="number" class="form-control" >
+        <input type="number" class="form-control" name="txtValor" >
       </div>
-    </form>
-    <form>
+   
       <div class="input-group mb-3" style="width: 55%; height: 45%; padding-left: 100px;">
         <div class="input-group-prepend" >
           <span class="input-group-text" >Stock del Producto:</span>
         </div>
-        <input type="number" class="form-control" >
+        <input type="number" class="form-control" name="txtStock" >
       </div>
-    </form>
-    <form>
+   
       <div class="input-group mb-3" style="width: 55%; height: 45%; padding-left: 100px;">
         <div class="input-group-prepend" >
           <span class="input-group-text" >Imagen del Producto:</span>
         </div>
-        <input type="file" class="form-control" >
+        <input type="file" class="form-control" name="txtImagen">
       </div>
+      <button  class="btn btn-outline-success" style="margin-left: 400px; width: 150px; height: 40px;">GRABAR</button>
     </form>
-    <button type="button" class="btn btn-outline-success" style="margin-left: 400px; width: 150px; height: 40px;">Agregar</button>
+    
   
+  {% if sw %}
+        <script>
+            setTimeout(function(){
+                document.getElementById("mensaje").innerHTML=''
+            },2000)
+        </script>
+        <div id="mensaje">        
+            <b>{{msg}}</b>
+        </div>
+        
+        {% endif %}
 {% endblock contenido %}

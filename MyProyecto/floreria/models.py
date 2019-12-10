@@ -13,6 +13,6 @@ class Flores(models.Model):
     valor=models.IntegerField()
     descripcion=models.TextField()
     stock=models.IntegerField()
-
+    imagen=models.ImageField(upload_to="flores",null=True)
     def __str__(self):
         return self.name
