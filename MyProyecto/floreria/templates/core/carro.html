@@ -10,8 +10,17 @@
 {% block contenido %}
 
     
-    <h1> {{lista}} </h1>
+    <table id="customers" border="1">
+    <tr>
+    <th>Producto:Cantidad</th>
 
-
-
+  </tr>
+  {% for p in lista %}
+  <tr>
+    <td>{{p}}</td>
+    
+  </tr>
+ {% endfor %}
+    </table>
+<a class="btn btn-outline-success" href="{% url 'VACIARCARRITO' %}">Eliminar</a>
 {% endblock contenido %}

@@ -40,15 +40,68 @@ def contactanos(request):
     return render(request, 'core/contactanos.html')
     #Retorna la pagina renderizada
 
-@login_required(login_url='/login/')
-def carro(request):
-    return render(request, 'core/carro.html')
-    #Retorna la pagina renderizada
-
 def cerrar_sesion(request):
     logout(request)
     return render(request,'core/cerrar_sesion.html')
 
+@login_required(login_url='/login/')
+def carro(request):
+    lista=request.session.get("carro","")
+    arr=lista.split(";")
+    return render(request,"core/carro.html",{'lista':arr})
+
+@login_required(login_url='/login/')
+def vacio_carrito(request):
+    request.session["carro"]=""
+    lista=request.session.get("carro","")
+    return render(request,"core/carro.html",{'lista':lista})
+
+@login_required(login_url='/login/')
+def agregar_carro(request, id):
+    flores=Flores.objects.filter(name__contains=id)
+    valor=Flores.valor   
+    sesion=request.session.get("carro","")
+    arr=sesion.split(";")
+    arr2=''
+    sw=0
+    cant=1
+    for f in arr:
+        pel=f.split(":")        
+        if pel[0]==id:
+            cant=int(pel[1])+1
+            sw=1
+            arr2=arr2+str(pel[0])+":"+str(cant)+";"            
+        elif not pel[0]=="":
+            cant=pel[1]
+            arr2=arr2+str(pel[0])+":"+str(cant)+";"
+    if sw==0:
+        arr2=arr2+str(id)+":"+str(cant)+";"
+
+    request.session["carro"]=arr2
+
+    flor=Flores.objects.all()
+
+    msg='Se agrego'
+    return render(request, 'core/galeria.html',{'listaflores':flor,'msg':msg})
+
+@login_required(login_url='/login/')
+def carrito(request):
+    lista=request.session.get("carro","")
+    arr=lista.split(";")
+    return render(request,"core/carrito.html",{'lista':arr})
+
+@login_required(login_url='/login/')
+def eliminar_flor(request,id):
+    msg=''    
+    flores=Flores.objects.get(name=id)
+    try:
+        flores.delete()
+        msg='Flor Eliminada'
+    except:
+        msg='No Pudo Eliminar Flor'
+    flor=Flores.objects.all()
+    return render(request, 'core/galeria.html',{'listaflores':flor,'msg':msg})
+    
 
 def registro(request):
     return render(request, 'core/registro.html')

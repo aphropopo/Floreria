@@ -44,9 +44,6 @@ button:hover {
 .cuadro p{
   text-align: justify;
 }
-.cuadro img:hover ~ div{
-  background-color: black;padding: 6px;border-radius: 2em;color: white;
-}
 
 /* Extra styles for the cancel button */
 .cancelbtn {
@@ -125,6 +122,29 @@ span.psw {
   animation: animatezoom 0.6s
 }
 
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
 @-webkit-keyframes animatezoom {
   from {-webkit-transform: scale(0)} 
   to {-webkit-transform: scale(1)}
@@ -145,3 +165,4 @@ span.psw {
      width: 100%;
   }
 }
+
