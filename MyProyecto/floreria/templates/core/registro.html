@@ -7,27 +7,31 @@
 {% block contenido %}
 {% load static %}
 <body background={% static 'core/img/fondo_login.jpg' %}>
-<block>
-<form>
+  <center>
+  <block>
+  
+  <form style="background-color: rgb(192, 235, 187); height: 330px; width: 350px;border-radius: 2em;">
   <div class="form-group">
-    <label for="exampleInputEmail1" style="margin-left: 50px;">Correo electronico:</label>
+    <label for="exampleInputEmail1" >Correo electronico:</label>
     <div>
-    <input type="email" class="form-control" style="width: 300px; margin-left: 50px;" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Correo electronico">
+    <input type="email" class="form-control" style="width: 300px;" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Correo electronico">
     </div>
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1" style="margin-left: 50px;">Contraseña:</label>
+    <label for="exampleInputPassword1">Contraseña:</label>
     <div>
-    <input type="password" class="form-control" style="width: 300px; margin-left: 50px;" id="exampleInputPassword1" placeholder="Contraseña">
+    <input type="password" class="form-control" style="width: 300px;" id="exampleInputPassword1" placeholder="Contraseña">
     </div>
   </div>
-  <label for="exampleInputPassword1" style="margin-left: 50px;">Confirme Contraseña:</label>
+  <label for="exampleInputPassword1">Confirme Contraseña:</label>
     <div>
-    <input type="password" class="form-control" style="width: 300px; margin-left: 50px;" id="exampleInputPassword1" placeholder="Contraseña">
+    <input type="password" class="form-control" style="width: 300px;" id="exampleInputPassword1" placeholder="Contraseña">
     </div>
   </div>
-  <button type="submit" class="btn btn-primary" style="width: 80px; margin-left: 50px;">Enviar</button>
+  <button type="submit" class="btn btn-primary" style="width: 110px;">Registrarse</button>
+</div>
 </form>
 </block>
+</center>
 </body>
 {% endblock contenido %}

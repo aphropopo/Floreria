@@ -16,7 +16,7 @@ def home(request):
     #Retorna la pagina renderizada
 
 def login(request):
-    return render(request,'core/login.html')
+    return render(request,'registration/login.html')
 
 def login_iniciar(request):
     if request.POST:
@@ -26,7 +26,7 @@ def login_iniciar(request):
         if usu is not None and usu.is_active:
             auth_login(request, usu)
             return render(request,'core/index.html')
-    return render(request,'core/login.html')
+    return render(request,'registration/login.html')
 
 @login_required(login_url='/login/')
 def galeria(request):

@@ -44,13 +44,14 @@
        <li class="nav-item">
         <a class="nav-link" href="{% url 'CONTA' %}">Contactanos</a>
       </li>
-      <li>
-        <b>Bienvenido {{ user.username }}</b>
-      </li>     
+        
       {% if user.is_authenticated %}     
       <li class="nav-item">
         <a class="nav-link" href="{% url 'CERRAR_SESION' %}">Cerrar sesion</a>
       </li>
+      <li style="padding-left: 100px;">
+        <b style="color: rgb(223, 233, 233);">Bienvenido {{ user.username }}</b>
+      </li> 
       {% endif %} 
     </ul>
   </div>  

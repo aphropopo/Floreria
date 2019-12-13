@@ -40,10 +40,12 @@
       <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Salir</button>
       <span class="txtPass"> <a href="#">Recuperar Contraseña?</a></span>
       <span class="REG"> <a href="{% url 'REGISTRO' %}" style="padding-left: 20px;">Registrarse</a></span>
+      
+      <span class="REG" style="float: right;"><a href="{% url 'social:begin' 'facebook' %}" alt="face"><img src="{% static 'core/img/iconface.png' %}" alt="face" /></a></span>
     </div>
-    <div>
-      <span class="REG"><a href="{% url 'social:begin' 'facebook' %}">Ingresar con facebook</a></span>
-    </div>
+    
+      
+    
   </form>
 </div>
 
