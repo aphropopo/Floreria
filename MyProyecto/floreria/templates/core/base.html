@@ -43,6 +43,9 @@
       </li>
        <li class="nav-item">
         <a class="nav-link" href="{% url 'CONTA' %}">Contactanos</a>
+      </li>
+      <li>
+        <b>Bienvenido {{ user.username }}</b>
       </li>     
       {% if user.is_authenticated %}     
       <li class="nav-item">
