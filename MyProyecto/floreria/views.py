@@ -92,7 +92,7 @@ def carrito(request):
     arr=lista.split(";")
     return render(request,"core/carrito.html",{'lista':arr})
 
-@login_required(login_url='/login/')
+@permission_required('core.delete_flores')
 def eliminar_flor(request,id):
     msg=''    
     flores=Flores.objects.get(name=id)
