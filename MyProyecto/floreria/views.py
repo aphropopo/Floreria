@@ -3,10 +3,12 @@ from django.contrib.auth.models import User
 # importar el sistema de autentificacion
 from .models import Flores,Usuario
 from django.contrib.auth import authenticate,logout,login as auth_login
+from django.contrib.auth import login,authenticate
 # importar los "decorators" que permiten evitar el ingreso a una pagina
 # sin estar logeado
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
 from django.http import HttpResponse
+from .forms import CustomUserForm
 
 # Create your views here. Crea los controladores
 #Para las paginas webs
@@ -104,10 +106,19 @@ def eliminar_flor(request,id):
     
 
 def registro(request):
-    return render(request, 'core/registro.html')
+    data = {
+        'form':CustomUserForm()
+    }
+    if request.method == 'POST':
+        formulario = CustomUserForm(request.POST)
+        if formulario.is_valid():
+            formulario.save()
+        
+            
+    return render(request, 'registration/registro.html', data)
     #Retorna la pagina renderizada
 
-@login_required(login_url='/login/')
+@permission_required('core.add_flores')
 def formulario(request):
     if request.POST:
         name=request.POST.get("txtName")

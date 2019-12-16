@@ -1,0 +1,25 @@
+{% extends "core/base.html" %}
+
+{% block titulo %}
+    Registro de Usuario
+{% endblock titulo %}
+
+{% block contenido %}
+{% load static %}
+<body background={% static 'core/img/fondo_login.jpg' %}>
+
+  <form action="" method="POST">
+    {% csrf_token %}
+
+    <table>
+
+      {{ form.as_table }}
+      
+    </table>
+    <h1>{{msg}}</h1>
+    <input type="reset" value="Limpiar">
+    <input type="submit" value="Registrar">
+  </form>
+
+</body>
+{% endblock contenido %}
