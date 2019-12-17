@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'floreria.apps.FloreriaConfig',
     'social_django',
+    'pwa',
 ]
 
 MIDDLEWARE = [
@@ -140,3 +141,5 @@ SOCIAL_AUTH_LOGIN_REDIRECT_URL='/'
 #CLAVES DE LA APLICACION DE FACEBOOK
 SOCIAL_AUTH_FACEBOOK_KEY='534029627185618'
 SOCIAL_AUTH_FACEBOOK_SECRET='0264aecf206ab4d0e40d34940a8bd9c3'
+
+PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'serviceworker.js')
