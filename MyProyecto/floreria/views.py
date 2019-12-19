@@ -10,8 +10,46 @@ from django.contrib.auth.decorators import login_required, permission_required
 from django.http import HttpResponse
 from .forms import CustomUserForm
 
+from rest_framework import viewsets
+from .serializer import FlorSerializer
+from django.views.decorators.http import require_http_methods
+from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponse, HttpResponseBadRequest
+from django.core import serializers
+import json
+
+from fcm_django.models import FCMDevice
+
+
+
 # Create your views here. Crea los controladores
 #Para las paginas webs
+@csrf_exempt
+@require_http_methods(['POST'])
+def guardar_token(request):
+    body = request.body.decode('utf-8')
+    bodyDict = json.loads(body)
+
+    token = bodyDict['token']
+
+    existe = FCMDevice.objects.filter(registration_id = token, active = True)
+
+    if len(existe) > 0:
+        return HttpResponseBadRequest(json.dumps({'mensaje':'el token ya existe'}))
+    
+    dispositivo = FCMDevice()
+    dispositivo.registration_id = token
+    dispositivo.active = True
+
+    if request.user.is_authenticated:
+        dispositivo.user = request.user
+
+    try:
+        dispositivo.save()
+        return HttpResponse(json.dumps({'mensaje':'token guardado'}))
+    except:
+        return HttpResponseBadRequest(json.dumps({'mensaje':'no se ha podido guardar'}))
+
 @login_required(login_url='/login/')
 def home(request):
     return render(request,'core/index.html') 
@@ -136,5 +174,15 @@ def formulario(request):
             imagen=imagen
         )
         flor.save() #graba el objeto e bdd
+        #dispositivos = FCMDevice.objects.filter(active=True)
+        #dispositivos.send_message(
+        #    title="Flor agregada : ",
+        #    body="Se ha agregado: ",
+        #    icon="/static/core/img/flor1.jpg"
+        #)
         return render(request,'core/formulario.html',{'msg':'grabo','sw':True})
     return render(request,'core/formulario.html')#pasan los datos a la web
+
+class FlorViewSet(viewsets.ModelViewSet):
+    queryset = Flores.objects.all()
+    serializer_class = FlorSerializer

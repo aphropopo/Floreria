@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'floreria.apps.FloreriaConfig',
     'social_django',
     'pwa',
+    'rest_framework',
+    'fcm_django',
 ]
 
 MIDDLEWARE = [
@@ -143,3 +145,17 @@ SOCIAL_AUTH_FACEBOOK_KEY='534029627185618'
 SOCIAL_AUTH_FACEBOOK_SECRET='0264aecf206ab4d0e40d34940a8bd9c3'
 
 PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'serviceworker.js')
+
+
+FCM_DJANGO_SETTINGS = {
+        "APP_VERBOSE_NAME": "Floreria",
+         # default: _('FCM Django')
+        "FCM_SERVER_KEY": "AIzaSyC1Xx1cpBEcc-N4NpfEhgX57T0GzDpJX5E",
+         # true if you want to have only one active device per registered user at a time
+         # default: False
+        "ONE_DEVICE_PER_USER": False,
+         # devices to which notifications cannot be sent,
+         # are deleted upon receiving error response from FCM
+         # default: False
+        "DELETE_INACTIVE_DEVICES": True,
+}

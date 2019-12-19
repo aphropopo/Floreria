@@ -2,6 +2,10 @@
 from django.contrib import admin
 from django.urls import path,include
 from .views import *
+from rest_framework import routers
+
+router = routers.DefaultRouter()
+router.register('flores', FlorViewSet)
 
 urlpatterns = [
     path('',home,name='HOME'),
@@ -16,4 +20,6 @@ urlpatterns = [
     path('agregar_carro/<id>/',agregar_carro,name='AGREGAR_CARRO'),
     path('eliminar_flor/<id>/',eliminar_flor,name='ELIMINAR_FLOR'),
     path('vaciar_carrito/',vacio_carrito,name='VACIARCARRITO'),
+    path('api/',include(router.urls)),
+    path('guardar-token/',guardar_token,name='guardar_token'),
 ]
